@@ -1,86 +1,109 @@
-# 📦 Aplikasi Manajemen Stok Barang
+# 📌 Stocky
 
-## 📌 Fitur Utama (Batch 1 - Wajib Dikerjakan Dulu)
-**🔹 Tujuan:** Aplikasi bisa digunakan untuk mencatat stok barang, mencari produk dengan barcode, dan memberikan peringatan barang kedaluwarsa.
+## 🚀 Batch 1 - Fitur Prioritas
+### ✅ 1️⃣ Manajemen Stok Barang
+**Deskripsi:** CRUD barang dan pencarian berdasarkan nama/barcode.  
 
-- ✅ **Manajemen Stok Barang**
-  - CRUD (Create, Read, Update, Delete) barang
-  - Pencarian barang berdasarkan nama dan barcode
-  - Menampilkan jumlah stok yang tersedia
+#### 📌 Task Breakdown:
+#### 🔹 Backend:
+- [ ] Membuat model database untuk tabel **products** dan **stock**
+- [ ] API untuk **menambahkan produk baru**
+- [ ] API untuk **mengupdate produk** (nama, deskripsi, kategori)
+- [ ] API untuk **menghapus produk**
+- [ ] API untuk **menambahkan stok produk**
+- [ ] API untuk **mengurangi stok produk**
+- [ ] API untuk **mendapatkan daftar produk berdasarkan nama/barcode**
+- [ ] API untuk **menampilkan jumlah stok yang tersedia**
+- [ ] Middleware untuk validasi input  
 
-- ✅ **Scan Barcode & Expiry Date**
-  - Scan barcode produk menggunakan kamera
-  - Backend mengembalikan data produk berdasarkan barcode
-  - **Mendeteksi tanggal kedaluwarsa** dari barcode dan memberikan notifikasi
-
-- ✅ **Autentikasi & Social Login**
-  - Login dengan Google, Facebook, atau Apple
-  - Simpan data pengguna di database
-  - Gunakan JWT untuk sesi login
-
-- ✅ **Notifikasi Stok Habis & Barang Kedaluwarsa**
-  - Peringatan saat stok hampir habis
-  - Notifikasi otomatis jika barang mendekati tanggal kedaluwarsa
-  - Bisa memilih metode notifikasi (email, push notification, atau SMS)
-
-- ✅ **To-Do List Belanja Otomatis**
-  - Jika stok habis, otomatis masuk ke daftar belanja
-  - Bisa menambahkan barang secara manual ke daftar belanja
-  - Checklist untuk menandai barang yang sudah dibeli
+#### 🔹 Frontend (Mobile/Web):
+- [ ] UI form untuk menambahkan produk  
+- [ ] UI daftar produk dengan fitur pencarian  
+- [ ] UI untuk menampilkan jumlah stok  
 
 ---
 
-## 🟡 Fitur Pendukung (Batch 2 - Menambah Kenyamanan Pengguna)
-**🔹 Tujuan:** Meningkatkan pengalaman pengguna dan otomatisasi manajemen stok.
+### ✅ 2️⃣ Scan Barcode & Expiry Date
+**Deskripsi:** Scan barcode untuk mencari produk dan mendeteksi tanggal kedaluwarsa jika tersedia.  
 
-- ✅ **Multi-User & Sharing List**
-  - Bisa berbagi stok dan daftar belanja dengan anggota keluarga
-  - Role-based access (Admin, Viewer, Editor)
+#### 📌 Task Breakdown:
+#### 🔹 Backend:
+- [ ] API untuk **mencari produk berdasarkan barcode**
+- [ ] API untuk **menyimpan batch barang dengan tanggal kedaluwarsa**
+- [ ] API untuk **mengembalikan tanggal kedaluwarsa jika tersedia**
+- [ ] Validasi format barcode  
 
-- ✅ **Statistik & Laporan Pengeluaran**
-  - Menampilkan grafik barang masuk & keluar
-  - Analisis pengeluaran dan rekomendasi budgeting
-
-- ✅ **Export & Import Data (CSV/Excel)**
-  - Backup data stok dalam format Excel / CSV
-  - Bisa mengimpor daftar barang dari file Excel
-
----
-
-## 🟠 Fitur Lanjutan (Batch 3 - Fitur Tambahan & AI)
-**🔹 Tujuan:** Meningkatkan efisiensi dengan fitur otomatisasi dan AI.
-
-- ✅ **AI Prediksi Stok & Saran Pembelian**
-  - AI menganalisis pola penggunaan barang
-  - Menampilkan **perkiraan kapan stok habis**
-  - Memberikan rekomendasi jumlah pembelian
-
-- ✅ **Mode Offline (PWA / Local DB di Mobile)**
-  - Data tetap bisa diakses tanpa internet
-  - Sinkronisasi otomatis saat online kembali
-
-- ✅ **Integrasi dengan E-Commerce / Marketplace**
-  - Bisa **langsung beli barang** dari e-commerce (Tokopedia, Shopee, dll.)
-  - Notifikasi jika harga barang yang sering dibeli sedang diskon
+#### 🔹 Frontend (Mobile/Web):
+- [ ] Implementasi **barcode scanner** (contoh: `ML Kit`, `ZXing`)
+- [ ] Menampilkan **hasil scan barcode**
+- [ ] Jika tidak ada data barcode → UI untuk menambahkan produk  
 
 ---
 
-## 🔵 Fitur Tambahan (Batch 4 - Baru Ditambahkan)
-**🔹 Tujuan:** Mempermudah pencarian, input data, dan menyediakan rekomendasi belanja.
+### ✅ 3️⃣ Notifikasi Stok Habis & Barang Kedaluwarsa
+**Deskripsi:** Notifikasi saat stok hampir habis atau barang mendekati tanggal kedaluwarsa.  
 
-- ✅ **Kategori & Tag Barang**  
-  - Bisa mengelompokkan barang berdasarkan **kategori** (Makanan, Elektronik, Peralatan, dll.)  
-  - Bisa menambahkan **tag custom** untuk mempermudah pencarian  
-  - Menampilkan **total stok per kategori**  
+#### 📌 Task Breakdown:
+#### 🔹 Backend:
+- [ ] Scheduler untuk **mengecek stok yang hampir habis**
+- [ ] Scheduler untuk **mengecek barang yang hampir expired**
+- [ ] API untuk **mengelola metode notifikasi (email, push, SMS)**
+- [ ] API untuk **mengambil daftar notifikasi**
+- [ ] API untuk **menandai notifikasi sebagai terbaca**  
 
-- ✅ **Scan Struk Belanja (OCR) & Auto-Input Barang**  
-  - Menggunakan **OCR (Optical Character Recognition)** untuk membaca struk belanja  
-  - Secara otomatis menambahkan barang yang baru dibeli ke stok  
-  - Menghitung total pengeluaran bulanan berdasarkan data dari struk  
+#### 🔹 Frontend (Mobile/Web):
+- [ ] UI daftar notifikasi  
+- [ ] UI untuk memilih metode notifikasi  
+- [ ] UI untuk menampilkan detail notifikasi  
 
-- ✅ **Fitur Bundling & Resep Masakan**  
-  - Bisa mengelompokkan beberapa barang menjadi satu paket (misalnya, "Paket Sarapan" terdiri dari telur, susu, roti)  
-  - Menyediakan **daftar bahan masakan** dengan stok yang tersedia  
-  - Menampilkan **saran masakan berdasarkan stok barang yang masih ada**  
+---
+
+## 💡 Batch 2 - Fitur Tambahan
+### ✅ 4️⃣ Todo List Belanja
+**Deskripsi:** Jika stok habis, pengguna bisa menambahkannya ke daftar belanja.  
+
+#### 📌 Task Breakdown:
+#### 🔹 Backend:
+- [ ] Model database untuk **shopping_list**
+- [ ] API untuk **menambahkan produk ke daftar belanja**
+- [ ] API untuk **menghapus produk dari daftar belanja**
+- [ ] API untuk **mengambil daftar belanja**  
+
+#### 🔹 Frontend (Mobile/Web):
+- [ ] UI daftar belanja  
+- [ ] UI untuk menambahkan item ke daftar belanja  
+- [ ] Notifikasi pengingat untuk belanja  
+
+---
+
+### ✅ 5️⃣ Social Login (Google, Apple, Facebook, dll.)
+**Deskripsi:** Memungkinkan pengguna login menggunakan akun sosial media.  
+
+#### 📌 Task Breakdown:
+#### 🔹 Backend:
+- [ ] API untuk **mengautentikasi pengguna via OAuth2**
+- [ ] API untuk **menghubungkan akun sosial ke akun sistem**
+- [ ] Menyimpan token akses untuk sesi pengguna  
+
+#### 🔹 Frontend (Mobile/Web):
+- [ ] Implementasi tombol login dengan Google/Facebook/Apple  
+- [ ] Menyimpan token sesi pengguna  
+- [ ] UI logout dan profil pengguna  
+
+---
+
+## 📈 Batch 3 - Fitur Opsional & Optimalisasi
+### ✅ 6️⃣ Laporan Stok & Penggunaan Barang
+**Deskripsi:** Laporan jumlah stok dan histori penggunaan barang.  
+
+#### 📌 Task Breakdown:
+#### 🔹 Backend:
+- [ ] Model database untuk **histori penggunaan barang**
+- [ ] API untuk **mengambil laporan stok**
+- [ ] API untuk **melihat histori penggunaan barang**  
+
+#### 🔹 Frontend (Mobile/Web):
+- [ ] UI untuk laporan stok  
+- [ ] UI untuk histori penggunaan  
 
 ---
